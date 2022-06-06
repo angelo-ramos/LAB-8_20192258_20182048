@@ -1,9 +1,9 @@
 <%@ page import="Beans.Artista" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean type="java.util.ArrayList<Beans.Artista>" scope="request" id="listaArtista"/>
+<jsp:useBean type="java.util.ArrayList<Beans.Artista>" scope="request" id="listaLideres"/>
 <html>
     <jsp:include page="/static/head.jsp">
-        <jsp:param name="title" value="Lista de Artistas"/>
+        <jsp:param name="title" value="Lista Filtrada de Artistas"/>
     </jsp:include>
     <body>
         <div class='container'>
@@ -12,13 +12,8 @@
             </jsp:include>
             <div class="pb-5 pt-4 px-3 titlecolor">
 
-                <div class="row gx-lg-5">
-                    <div class="col-lg-6">
-                        <h1 class='text-light'>Lista de Artistas</h1>
-                    </div>
-                    <div class="col-lg-3">
-                        <a class="btn btn-warning" href="<%=request.getContextPath()%>/listaLideres">Solo mas de 5 canciones</a>
-                    </div>
+                <div class="col-lg-6">
+                    <h1 class='text-light'>Lista Filtrada de Artistas</h1>
                 </div>
 
             </div>
@@ -31,7 +26,7 @@
                         <th>INSTRUMENTO</th>
                     </thead>
                     <%  String color = "fila-blue";
-                        for (Artista artista : listaArtista) {
+                        for (Artista artista : listaLideres) {
                             if(artista.getIdinstrumento().equals("GUI")){
                                 color = "fila-red";
                             }else if(artista.getIdinstrumento().equals("BSS")){
